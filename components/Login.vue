@@ -89,10 +89,10 @@
 import Vue from "vue";
 import db from "./../plugins/firebase";
 
-interface user {
-    name: string,
-    surname: string
-}
+// interface user {
+//     name: string,
+//     surname: string
+// }
 
 export default Vue.extend({
   data() {
@@ -102,8 +102,6 @@ export default Vue.extend({
 
       isPswErr: false,
       isLogErr: false,
-
-        User: {} as user
     };
   },
   methods: {
@@ -136,8 +134,6 @@ export default Vue.extend({
                 localStorage.setItem('loged', 'true')
               } else {
                 alert("wrong username or password");
-                this.User.name = 3
-                console.log(this.User.name);
                 
               }
             });
