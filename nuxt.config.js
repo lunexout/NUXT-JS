@@ -1,4 +1,5 @@
 export default {
+  loading: '~/components/Spinner.vue',
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
 
@@ -40,7 +41,10 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~/plugins/firebase.js',
+    {src: 'plugins/owl.js', ssr: false},
+  ],
   // script: [
   //   {src: "https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" },
   //   {src: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"}
@@ -70,9 +74,37 @@ export default {
          }
        ]
       }
-    ]
+    ],
+    ['@nuxt/http']
+    // [ '@nuxtjs/firebase'],
   ],
+  // http: {
+  //   proxy: true // Can be also an object with default options
+  // },
+  // proxy: {
+  //   '/mountains/': 'https://api.nuxtjs.dev/mountains',
+  // }
+  // firebase: {
+  //   config: {
+  //     apiKey: "AIzaSyAyMdcooEH_uAqG4to31gRPRf1mlKwoAAQ",
+  //     authDomain: "social-media-f09c2.firebaseapp.com",
+  //     projectId: "social-media-f09c2",
+  //     storageBucket: "social-media-f09c2.appspot.com",
+  //     messagingSenderId: "373194734779",
+  //     appId: "1:373194734779:web:94129fbd262740ebba3d9e",
+  //     measurementId: "G-RFQXEQDXCL"
+  //   },
+  //   services: {
+  //     auth: true, // Just as example. Can be any other service.
+  //     firestore: true,
+  //     // functions: true,
+  //     storage: true,
+  //   },
+  //   env: {
+  //     FIRE_ENV: process.env.FIRE_ENV
+  //   }
+  
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
 };

@@ -1,10 +1,10 @@
 <template>
-  <h1>dfsdfdsfd</h1>
+  <Home/>
 </template>
 
 <script>
 export default {
-
+  layout: 'navbar'
 }
 </script>
 

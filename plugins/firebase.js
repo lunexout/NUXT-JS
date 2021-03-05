@@ -10,8 +10,8 @@ const firebaseApp = {
     measurementId: "G-RFQXEQDXCL"
 }
 
-firebase.initializeApp(firebaseApp);
+// firebase.initializeApp(firebaseApp);
+export default !firebase.apps.length ? firebase.initializeApp(firebaseApp) : firebase.app();
+// const fb = firebase.firestore()
 
-const db = firebase.firestore()
-
-export default db
+// export default fb

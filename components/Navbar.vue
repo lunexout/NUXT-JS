@@ -1,21 +1,34 @@
 <template>
-  <nav class="navbar navbar-light fixed-top" style="background-color: #20232A; ">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#" style="color: #fff">
-      <!-- <img src="" alt="" width="30" height="24" class="d-inline-block align-top"> -->
-       <font-awesome-icon style="color: #61DAEE; font-size: 30px;" :icon="['fab', 'affiliatetheme']"/>
-      SocialMedia 
-    </a>
+  <div
+    class="fixed-top"
+    style="background-color: #20232A; height: 70px; display: flex; align-items: center; justify-content: center;"
+  >
+    <div class="container" style="max-width: 1680px;">
+      <div class="row justify-content-between">
+        <div class="col-xl-3 col-md-3 col-1" style="position: relative;">
+          <Notification/>
+        </div>
+        <div class="col-xl-5 col-md-5 col-8 p-2" style="position: relative;">
+          <Search/>
+        </div>
+        <div class="col-xl-3 col-md-3 col-2" style="position: relative;">
+          <Profile/>
+        </div>
+      </div>
+    </div>
   </div>
-</nav>
 </template>
 
-<script>
-import Vue from 'vue'
+<script lang="ts">
+import Vue from "vue";
 export default Vue.extend({
-})
+});
 </script>
 
-<style>
-
+<style scoped>
+@media all and (max-width: 555px) {
+  .logoname {
+    display: none;
+  }
+}
 </style>

@@ -1,5 +1,6 @@
 <template>
   <Login />
+  <!-- <div></div> -->
 </template>
 
 <script lang="ts">
@@ -7,16 +8,18 @@ import Vue from "vue";
 
 export default Vue.extend({
   data() {
-    return {};
+    return {
+      
+    };
   },
-  mounted() {
+  beforeMount(): void {
     if (localStorage.getItem("loged") != "true") {
       console.log('sdfsd');
-      
     } else {
-      this.$router.push({ path: "login" });
+      this.$router.push({ path: "homepage" });
     }
-  }
+  },
+
 });
 </script>
 

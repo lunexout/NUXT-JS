@@ -1,5 +1,5 @@
 <template>
-  <div class="container px-2 py-5 mx-auto">
+  <div class="container px-2 py-5 mx-auto" style="margin-top: -90px;">
     <div class="card card0">
       <div class="d-flex flex-lg-row flex-column-reverse">
         <div class="card card1">
@@ -85,14 +85,9 @@
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import Vue from "vue";
-import db from "./../plugins/firebase";
-
-// interface user {
-//     name: string,
-//     surname: string
-// }
+import firebase from "./../plugins/firebase";
 
 export default Vue.extend({
   data() {
@@ -102,6 +97,7 @@ export default Vue.extend({
 
       isPswErr: false,
       isLogErr: false,
+      isLoading: false
     };
   },
   methods: {
@@ -121,33 +117,36 @@ export default Vue.extend({
       if (this.login != "" && this.password != "") {
         this.isPswErr = false;
         this.isLogErr = false;
-        await db
+        await firebase
+          .firestore()
           .collection("Users")
           .get()
           .then(data => {
-            data.docs.map(user => {
+            data.docs.map(item => {
               if (
-                user.data().name == this.login &&
-                user.data().password == this.password
+                item.data().name == this.login &&
+                item.data().password == this.password
               ) {
-                this.$router.push({path: 'login'})
-                localStorage.setItem('loged', 'true')
+                this.$router.push({ path: "homepage" });
+                localStorage.setItem("loged", "true");
               } else {
                 alert("wrong username or password");
-                
               }
             });
           });
       }
     }
+  },
+  mounted(): void {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start();
+      this.$nuxt.$loading.finish();
+    });
   }
-  // async created() {
-  //     await db.collection('Users').get().then(data => data.docs.map(data =>{console.log(data.data())}))
-  // }
 });
 </script>
 
-<style>
+<style scoped>
 .error {
   border: 2px solid red !important;
 }

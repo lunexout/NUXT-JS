@@ -1,13 +1,13 @@
 <template>
   <div>
-    <!-- <Navbar/> -->
+    <Navbar/>
     <Nuxt />
   </div>
 </template>
 
 <style>
 body {
-  margin-top: 0px;  
+  margin-top: 90px;  
   background-color: #282c34;
 }
 </style>
