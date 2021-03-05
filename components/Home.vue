@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="col-xl-5 col-md-8 col-12 second_row">
-        <StoryCarousel />
+        <StoryCarousel :info='info' />
         <div style="border: 1px solid red; height: 300px;"></div>
       </div>
       <div class="col-xl-3 col-md-12 third_row">
@@ -31,6 +31,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+// import {mapActions, mapGetters} from 'vuex'
 export default Vue.extend({
   data() {
     return {
@@ -39,6 +40,7 @@ export default Vue.extend({
       isProfilePanel: false
     };
   },
+  props: ['info'],
   created() {
     this.$nuxt.$on("openNotificationEmit", () => {
       this.isNotificationPanel
@@ -57,6 +59,16 @@ export default Vue.extend({
         ? (this.isProfilePanel = false)
         : (this.isProfilePanel = true);
     });
+  },
+  computed: {
+        // ...mapGetters(['getCounter'])
+    },
+  methods: {
+    // ...mapActions(['addCounter']),
+    increment(){
+      console.log(11111);
+      console.log(this.$store.state);
+    }
   }
 });
 </script>

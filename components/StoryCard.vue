@@ -4,14 +4,31 @@
       width="80"
       height="80"
       style="border-radius: 50%;"
-      src="https://source.unsplash.com/random/80x80"
+      
     />
+
+    <ul>
+      <li>{{ info }}</li>
+    </ul>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-export default Vue.extend({});
+export default Vue.extend({
+  data(){
+    return {
+      mountains: []
+    }
+  },
+  props: ['info'],
+    // async fetch() {
+    //   this.mountains = await fetch(
+    //     'https://api.nuxtjs.dev/mountains'
+    //   ).then(res => res.json())
+    // },
+    // fetchOnServer: true
+});
 </script>
 
 <style scoped>

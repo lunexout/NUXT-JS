@@ -14,24 +14,19 @@
         1600: { items: 6, nav: false, margin: 25 }
       }"
     >
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
-      <StoryCard />
+      <StoryCard :info='info' />
+      <StoryCard :info='info' />
+      <StoryCard :info='info' />
+      <StoryCard :info='info' />
+      <StoryCard :info='info' />
+      <StoryCard :info='info' />
+      <StoryCard :info='info' />
+      <StoryCard :info='info' />
+      <StoryCard :info='info' />
+      <StoryCard :info='info' />
+      <StoryCard :info='info' />
+      <StoryCard :info='info' />
+      <StoryCard :info='info' />
     </carousel>
   </no-ssr>
 </template>
@@ -40,7 +35,8 @@
 import Vue from 'vue'
 import StoryCard from "./StoryCard.vue";
 export default Vue.extend ({
-    components: {StoryCard}
+    components: {StoryCard},
+    props: ['info']
 });
 </script>
 
