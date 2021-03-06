@@ -1,14 +1,14 @@
 <template>
-  <div class="wrapper mt-2" style="margin: 0 auto;">
+  <div class="wrapper mt-2" style="margin: 0 auto;" aria-label="left menu">
     <div class="card mt-2">
       <div class="front">
-        <h1 class="ml-2">{{ cardinfo.title }}</h1>
+        <h1 class="ml-2" dir='auto'>{{ cardinfo.title }}</h1>
         <p><span>2021</span></p>
         <p><span>Hover to see topics</span></p>
         <p class="price ml-1">Check News</p>
       </div>
       <div class="right">
-        <h1>{{ cardinfo.title }}</h1>
+        <h1 dir='auto'>{{ cardinfo.title }}</h1>
         <ul>
           <li v-for="topic in cardinfo.topics" :key="topic">
             <font-awesome-icon
@@ -19,9 +19,9 @@
             {{ topic }}
           </li>
         </ul>
-        <button>
+        <button type='button' aria-label="read more">
           <a :href="cardinfo.link" style="text-decoration: none; color: white"
-            >Read More</a
+            >{{cardinfo.title}} Topics</a
           >
         </button>
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container px-2 py-5 mx-auto" style="margin-top: -90px;">
+  <div class="container px-2 py-5 mx-auto" style="margin-top: -90px;" aria-label="login">
     <div class="card card0">
       <div class="d-flex flex-lg-row flex-column-reverse">
         <div class="card card1">
@@ -12,22 +12,33 @@
                   :icon="['fab', 'affiliatetheme']"
                 />
               </div>
-              <h3 class="mb-2 text-center heading text-white display-6">
+              <h3
+                dir="auto"
+                class="mb-2 text-center heading text-white display-6"
+              >
                 SOCIAL MEDIA
               </h3>
               <h6
+                dir="auto"
                 class="msg-info text-white"
                 style="font-family: OpenSansRegular; font-weight: 400"
               >
                 Please login to your account
               </h6>
-              <form>
+              <form @keyup.prevent.enter='loginAsUser'>
                 <div class="form-group">
                   <input
                     type="text"
                     id="email"
                     name="email"
                     placeholder="Enter your Email"
+                    aria-label="Enter email"
+                    aria-autocomplete="false"
+                    aria-checked="false"
+                    aria-disabled="false"
+                    aria-errormessage="false"
+                    aria-placeholder="Enter email"
+                    aria-required="true"
                     class="form-control OSR"
                     :class="{ error: isLogErr }"
                     v-model="login"
@@ -40,6 +51,13 @@
                     id="psw"
                     name="psw"
                     placeholder="Password"
+                    aria-label="Enter Password"
+                    aria-autocomplete="false"
+                    aria-checked="false"
+                    aria-disabled="false"
+                    aria-errormessage="false"
+                    aria-placeholder="Enter Password"
+                    aria-required="true"
                     class="form-control OSR"
                     autocomplete="off"
                     :class="{ error: isPswErr }"
@@ -61,7 +79,12 @@
             </div>
           </div>
           <div class="bottom text-center mb-5">
-            <p href="#" class="sm-text text-white mx-auto mb-3 mr-5">
+            <p
+              aria-label="dont have account"
+              title="dont have account"
+              href="#"
+              class="sm-text text-white mx-auto mb-3 mr-5"
+            >
               Don't have an account?
               <NuxtLink
                 to="/"
@@ -75,7 +98,7 @@
         </div>
         <div class="card card2">
           <div class="my-auto mx-md-5 px-md-5 right">
-            <h3 class="text-white display-5">
+            <h3 dir="auto" class="text-white display-5">
               The new georgian social media for artists Coming Soon...
             </h3>
           </div>
@@ -88,7 +111,7 @@
 <script lang="ts">
 import Vue from "vue";
 import firebase from "./../plugins/firebase";
-
+// const firebase = () => require('../plugins/firebase')
 export default Vue.extend({
   data() {
     return {
@@ -137,7 +160,7 @@ export default Vue.extend({
       }
     }
   },
-  mounted(): void {
+  beforeMount(): void {
     this.$nextTick(() => {
       this.$nuxt.$loading.start();
       this.$nuxt.$loading.finish();

@@ -12,7 +12,7 @@ export default Vue.extend({
       
     };
   },
-  beforeMount(): void {
+  mounted(): void {
     if (localStorage.getItem("loged") != "true") {
       console.log('sdfsd');
     } else {

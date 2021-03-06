@@ -15,14 +15,8 @@
         autocorrect="off"
         spellcheck="false"
         placeholder="Search your friends"
-        aria-label="Search your friends"
-        aria-autocomplete="false"
-        aria-checked="false"
-        aria-disabled="false"
-        aria-errormessage="false"
-        aria-placeholder="Search  your friends"
-        aria-required="true"
-        required
+        
+
         v-model="searchFriend"
       />
       <font-awesome-icon :icon="['fas', 'search']" class="search__icon" />
@@ -30,6 +24,7 @@
     <button
       class="btn btn-danger"
       style="border-radius: 25px; width: 150px; height: auto;"
+      type="button"
     >
       Take Friend
     </button>

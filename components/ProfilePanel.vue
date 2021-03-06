@@ -25,6 +25,7 @@
       class="hover-animation-div"
     >
       <span style="font-size: 21px; margin-right: 15px; margin-left: 15px;"
+      @click='logout'
         >Logout</span
       >
       <font-awesome-icon
@@ -37,7 +38,14 @@
 
 <script>
 import Vue from "vue";
-export default Vue.extend({});
+export default Vue.extend({
+  methods: {
+    logout(){
+      localStorage.clear();
+      this.$router.push({path: '/'})
+    }
+  }
+});
 </script>
 
 <style scoped></style>

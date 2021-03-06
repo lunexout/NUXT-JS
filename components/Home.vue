@@ -13,7 +13,7 @@
           <LeftMenu />
         </div>
       </div>
-      <div class="col-xl-5 col-md-8 col-12 second_row">
+      <div class="col-xl-5 col-md-6 col-12 second_row" style="margin: 0 auto;">
         <StoryCarousel :info='info' />
         <div style="border: 1px solid red; height: 300px;"></div>
       </div>
@@ -41,7 +41,7 @@ export default Vue.extend({
     };
   },
   props: ['info'],
-  created() {
+  mounted() {
     this.$nuxt.$on("openNotificationEmit", () => {
       this.isNotificationPanel
         ? (this.isNotificationPanel = false)
@@ -59,25 +59,27 @@ export default Vue.extend({
         ? (this.isProfilePanel = false)
         : (this.isProfilePanel = true);
     });
+    if(localStorage.getItem('loged') != 'true'){
+      this.$router.push({path: '/'})
+    }
   },
   computed: {
         // ...mapGetters(['getCounter'])
     },
   methods: {
     // ...mapActions(['addCounter']),
-    increment(){
-      console.log(11111);
-      console.log(this.$store.state);
-    }
   }
 });
 </script>
 
 <style scoped>
-@media all and (max-width: 1060px) {
-  /* .first_row {
+@media all and (max-width: 1199px) {
+  .first_row {
     display: none ;
-  } */
+  }
+  .third_row {
+    display: none ;
+  }
 }
 .first_row {
   background-color: #32363e;

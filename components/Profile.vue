@@ -8,6 +8,9 @@
       src="https://www.peoplecorp.com.au/wp-content/uploads/2015/04/steve-jobs-portrait1-400x400.jpg"
       width="50"
       height="50"
+      title="Profile"
+      aria-label="Profile"
+      alt="Profile"
     />
   </div>
 </template>

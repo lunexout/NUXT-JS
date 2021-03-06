@@ -5,14 +5,16 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "nuxt-social-ts",
+    title: "Social network",
     htmlAttrs: {
       lang: "en"
     },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" }
+      { hid: "description", name: "description", content: "social network" },
+      {name: "keywords", content: "nuxt & typescript"},
+      {name: "author", content: "Jano Gazashvili"}
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -21,7 +23,8 @@ export default {
         type: "text/css",
         href:
           "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-      }
+      },
+      
     ],
     script: [
       {

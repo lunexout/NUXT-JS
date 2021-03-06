@@ -4,20 +4,21 @@
       width="80"
       height="80"
       style="border-radius: 50%;"
-      
+      alt="stories"
+      title="Stories"
+      aria-label="Stories"
+      :src='post'
     />
-
-    <ul>
-      <li>{{ info }}</li>
-    </ul>
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from "vue";
+import firebase from "./../plugins/firebase";
 export default Vue.extend({
   data(){
     return {
+      post: {},
       mountains: []
     }
   },
@@ -28,6 +29,14 @@ export default Vue.extend({
     //   ).then(res => res.json())
     // },
     // fetchOnServer: true
+  async created(){
+        await firebase
+          .firestore()
+          .collection("Users")
+          .onSnapshot(data => {
+            data.docs.map(item => this.post = item.data().image);
+          });
+  }
 });
 </script>
 
